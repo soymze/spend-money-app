@@ -1,0 +1,20 @@
+.header-banner{
+    background-color: white;
+    border-radius: 1rem;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 1rem;
+}
+
+img{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 5rem;
+    margin-left: 50%;
+    margin-top: 1rem;
+}
+
+h1{
+    margin-left: 44%;
+    margin-top: -0.1rem;
+}

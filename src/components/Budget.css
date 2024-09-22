@@ -1,0 +1,12 @@
+.budget-container{
+    background: linear-gradient(180deg, rgba(60,255,0,1) 0%, rgba(52,185,8,1) 35%, rgba(20,115,20,1) 100%);    height: 5rem;
+    border-radius: 1rem;
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.money{
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
