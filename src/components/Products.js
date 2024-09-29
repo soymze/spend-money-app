@@ -36,14 +36,7 @@ import Skyscraper from '../media/skyscraper.jpg';
 import Cruise from '../media/cruise-ship.jpg';
 import NBA from '../media/nba-team.jpg';
 
-function Products({ buyProduct, sellProduct }) {
-
-  const [quantity, setQuantity] = useState(1);
-
-  const handleQuantityChange = (e) => {
-    setQuantity(Number(e.target.value));
-  }
-
+function Products({ buyProduct, sellProduct, purchasedQuantities }) {
   const products = [
     { id: 1, name: 'Big Mac', price: 2, image: Bigmac },
     { id: 2, name: 'Flip Flops', price: 3, image: Flipflop },
@@ -77,27 +70,45 @@ function Products({ buyProduct, sellProduct }) {
     { id: 30, name: 'Super Bowl Ad', price: 5000000, image: Super },
     { id: 31, name: 'Yacht', price: 10000000, image: Yacht },
     { id: 32, name: 'Mansion', price: 50000000, image: Mansion },
-    { id: 34, name: 'Skyscraper', price: 850000000, image: Skyscraper },
-    { id: 35, name: 'Cruise Ship', price: 1200000000, image: Cruise },
-    { id: 36, name: 'NBA Team', price: 2000000000, image: NBA }
+    { id: 33, name: 'Skyscraper', price: 850000000, image: Skyscraper },
+    { id: 34, name: 'Cruise Ship', price: 1200000000, image: Cruise },
+    { id: 35, name: 'NBA Team', price: 2000000000, image: NBA }
   ];
+
+  const [quantities, setQuantities] = useState(
+    products.reduce((acc, product) => {
+      acc[product.id] = 1;
+      return acc;
+    }, {})
+  );
+
+  const handleQuantityChange = (id, value) => {
+    const newValue = Math.max(Number(value), 1); 
+    setQuantities(prev => ({ ...prev, [id]: newValue }));
+  };
 
   return (
     <div className='container'>
       {products.map((product) => (
-        <div key={product.id} className="item1 card">
+        <div key={product.id} className="card">
           <img src={product.image} alt={product.name} />
-          <h3>{product.name}</h3> 
+          <h2>{product.name}</h2>
           <h4>${product.price}</h4>
           <div className='buttons'>
-            <button className='sell-btn' onClick={() => sellProduct(product.price, quantity)}>SELL</button>
+            <button 
+              className='sell-btn' 
+              onClick={() => sellProduct(product.price, quantities[product.id] || 1, product.id)} 
+              disabled={!purchasedQuantities[product.id] || purchasedQuantities[product.id] < quantities}
+            >
+              SELL
+            </button>
             <input 
               type="number" 
-              value={quantity} 
-              onChange={handleQuantityChange} 
+              value={quantities[product.id] || 1} 
+              onChange={(e) => handleQuantityChange(product.id, e.target.value)} 
               min="1" 
             />
-            <button className='buy-btn' onClick={() => buyProduct(product.price, quantity)}>BUY</button>
+            <button className='buy-btn' onClick={() => buyProduct(product.price, quantities[product.id] || 1, product.id, product.name)}>BUY</button>
           </div>
         </div>
       ))}
@@ -105,4 +116,4 @@ function Products({ buyProduct, sellProduct }) {
   );
 }
 
-export default Products
+export default Products;

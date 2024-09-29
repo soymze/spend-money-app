@@ -14,13 +14,14 @@
   }
   
   .card > img{
-    width: 8rem;
-    height: 8rem;
-    margin-left: 7.5rem;
+    width: 6rem;
+    height: 6rem;
+    margin-top: 1rem;
+    margin-left: 35%;
   }
 
-  .card > h3,h4{
-    margin-left: 8rem;
+  .card > h2,h4{
+    margin-left: 38%;
   }
 
   .sell-btn{
@@ -32,6 +33,7 @@
     border-radius: 0.2rem;
     background-color: red;
     color: white;
+    cursor: pointer;
   }
 
   .buy-btn{
@@ -43,6 +45,7 @@
     border-radius: 0.2rem;
     background-color: green;
     color: white;
+    cursor: pointer;
   }
 
   input{
@@ -50,5 +53,16 @@
     width: 4.5rem;
     margin-left: 1rem;
     margin-right: 1rem;
+  }
+
+  .buttons button:disabled {
+    background-color: #d3d3d3;
+    color: #a9a9a9;
+    cursor: not-allowed;
+    border: none;
+  }
+
+  .container> .card > h4{
+    color: green;
   }
 
