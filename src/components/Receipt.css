@@ -1,0 +1,10 @@
+.receipt-container{
+    background-color: white;
+    margin-top: 1rem;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.receipt-container>h1{
+    margin-left: 35%;
+}

@@ -1,10 +1,10 @@
 import React from 'react';
 import './Budget.css';
 
-function Budget() {
+function Budget({budget}) {
   return (
     <div className='budget-container'>
-      <h1 className='money'>$100,000,000,000</h1>
+      <h1 className='money'>${budget.toLocaleString()}</h1>
     </div>
   )
 }

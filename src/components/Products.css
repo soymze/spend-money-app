@@ -8,8 +8,47 @@
   }
 
   .card{
-    height: 15rem;
+    height: 20rem;
     border-radius: 0.3rem;
     background-color: white;
+  }
+  
+  .card > img{
+    width: 8rem;
+    height: 8rem;
+    margin-left: 7.5rem;
+  }
+
+  .card > h3,h4{
+    margin-left: 8rem;
+  }
+
+  .sell-btn{
+    height: 2rem;
+    width: 4.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: none;
+    border-radius: 0.2rem;
+    background-color: red;
+    color: white;
+  }
+
+  .buy-btn{
+    height: 2rem;
+    width: 4.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: none;
+    border-radius: 0.2rem;
+    background-color: green;
+    color: white;
+  }
+
+  input{
+    height: 2rem;
+    width: 4.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
